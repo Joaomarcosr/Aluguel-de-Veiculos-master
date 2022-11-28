@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "a4bac7d4-c014-4ac6-99dc-e3821dd2d02e",
+		"name": "challenge-shopping-cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list-products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show-product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products/c92b2b5c-809a-11ec-a47e-0242c0a89002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"c92b2b5c-809a-11ec-a47e-0242c0a89002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-shopping-cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n        {\"product_id\": \"c92b2b5c-809a-11ec-a47e-0242c0a89002\", \"quantity\": 1}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-item-in-cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": \"c92b2b5c-809a-11ec-a47e-0242c0a89002\",\r\n    \"quantity\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/aa27b5ac-73df-42ef-97f5-29da40d34589",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"aa27b5ac-73df-42ef-97f5-29da40d34589"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove-item-in-cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/aa27b5ac-73df-42ef-97f5-29da40d34589/c92b2b5c-809a-11ec-a47e-0242c0a89002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"aa27b5ac-73df-42ef-97f5-29da40d34589",
+						"c92b2b5c-809a-11ec-a47e-0242c0a89002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-item-quantity",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": \"c92b2b5c-809a-11ec-a47e-0242c0a89002\",\r\n    \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/3bd74f72-ce23-40e1-9dde-fceb52868f10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"3bd74f72-ce23-40e1-9dde-fceb52868f10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clear-cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/3bd74f72-ce23-40e1-9dde-fceb52868f10/clear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"3bd74f72-ce23-40e1-9dde-fceb52868f10",
+						"clear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show-cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/510193a1-d025-4467-8179-1716e51182af",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"510193a1-d025-4467-8179-1716e51182af"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-coupons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/coupons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-coupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"VALE10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/shoppingcarts/510193a1-d025-4467-8179-1716e51182af/add-coupon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"shoppingcarts",
+						"510193a1-d025-4467-8179-1716e51182af",
+						"add-coupon"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

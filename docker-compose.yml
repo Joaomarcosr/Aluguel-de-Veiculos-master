@@ -1,0 +1,32 @@
+version: "3.9"
+
+networks:
+  cart-network:
+    driver: bridge
+
+services:
+  cart-mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - "3306:3306"
+    networks:
+      - cart-network
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+  cart-api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      FLASK_ENV: development
+      SQLALCHEMY_DATABASE_URI: "mysql://root:123@cart-mysql/shop"
+    command: sh -c "sleep 20 && python -m flask run --host=0.0.0.0"
+    ports:
+      - "5000:5000"
+    networks:
+      - cart-network
+    depends_on:
+      - cart-mysql
